@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { createWriteStream } from 'fs';
 
 @Component({
   selector: 'candidates',
@@ -16,6 +17,8 @@ export class CandidatesComponent implements OnInit {
     {name: 'Champ', data: {age: 9, mass: '36 kg', sidekick: 'Carly'}, image: 'assets/images/Carly.png'}
   ];
 
+  selected = [];
+  
   crew = [];
 
   constructor() { }
@@ -24,7 +27,11 @@ export class CandidatesComponent implements OnInit {
   }
 
   // Code the addToCrew function here:
-
+  addToCrew (selected: object) {
+   if(!this.crew.includes(selected)) {
+    this.crew.push(selected);
+   }
+  }
 
   // BONUS: Code the changeMissionName function here:
 
